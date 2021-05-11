@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.hurryyu.externalscopedtest.databinding.ActivityMainBinding
+import com.hurryyu.externalscopedtest.databinding.ActivityMainBinding.inflate
 import java.io.BufferedInputStream
 import java.io.BufferedOutputStream
 import java.io.File
@@ -35,7 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        viewBinding = inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         updatePermissionState()
@@ -157,7 +160,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         val uri =
             contentResolver.insert(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI,
                 generatorSavePicToPublicFolderContentValues(displayName, mimeType)
             )
         uri?.also {
