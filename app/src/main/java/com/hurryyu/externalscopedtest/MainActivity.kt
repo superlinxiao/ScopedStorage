@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         val uri =
             contentResolver.insert(
-                MediaStore.Images.Media.INTERNAL_CONTENT_URI,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 generatorSavePicToPublicFolderContentValues(displayName, mimeType)
             )
         uri?.also {
